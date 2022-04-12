@@ -1,9 +1,9 @@
 {
   "name": "yesnt-validation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
-  "url": "https://github.com/mathias-poweredsoft/yesnt-validator#readme",
+  "url": "https://github.com/mathias-poweredsoft/yesnt-validation#readme",
   "scripts": {
     "build": "npx tsc",
     "publish:next": "npm publish --access public --tag next",
@@ -17,6 +17,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mathias-poweredsoft/yesnt-validator"
+    "url": "https://github.com/mathias-poweredsoft/yesnt-validation"
   }
 }
