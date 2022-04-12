@@ -1,15 +1,10 @@
 import { AbstractValidator } from "./abstract-validator";
+import { IModel, IValidatorAction } from "./interfaces";
+import { IsRequiredRule, IsNumberRule, IsStringRule, IsObjectRule } from "./rules";
+import { Class, ValidatorFunction, ValidatorAction } from "./types";
 import { ValidatorContext } from "./validator-context";
-import { IValidatorAction } from "./interfaces/validator-action.interface";
-import { IsObjectRule } from "./rules/is-object.rule";
-import { IsStringRule } from "./rules/is-string.rule";
-import { IsNumberRule } from "./rules/is-number.rule";
-import { Class } from "./types/class.type";
-import { ValidatorFunction } from "./types/validator-function.type";
-import { ValidatorAction } from "./types/validator-action.type";
-import { IsRequiredRule } from "./rules/is-required.rule";
 
-export class RuleBuilder<TModel extends Object, TProperty extends keyof TModel> {
+export class RuleBuilder<TModel extends IModel, TProperty extends keyof TModel> {
   protected _rules: IValidatorAction<TModel, TProperty>[] = [];
   validators: Class<AbstractValidator<any>>[] = [];
 
@@ -48,7 +43,7 @@ export class RuleBuilder<TModel extends Object, TProperty extends keyof TModel> 
     return this.AddRule(IsObjectRule);
   }
 
-  SetValidator<TValidatorModel extends Object>(validator: Class<AbstractValidator<TValidatorModel>>) {
+  SetValidator<TValidatorModel extends IModel>(validator: Class<AbstractValidator<TValidatorModel>>) {
     this.validators.push(validator);
   }
 

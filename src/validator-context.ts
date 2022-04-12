@@ -1,6 +1,6 @@
-import { IValidationFailure } from "./interfaces/validation-failure.interface";
+import { IModel, IValidationFailure } from "./interfaces";
 
-export class ValidatorContext<TModel extends Object, TProperty extends keyof TModel> {
+export class ValidatorContext<TModel extends IModel, TProperty extends keyof TModel> {
   errors: IValidationFailure<TModel, TProperty>[] = [];
 
   constructor(public model: TModel, public property: TProperty) { }

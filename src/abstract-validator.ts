@@ -1,8 +1,7 @@
-import { IValidator } from "./interfaces/validator.interface";
-import { IValidationContext } from "./interfaces/validation-context.interface";
 import { RuleBuilder } from "./rule-builder";
+import { IModel, IValidationContext, IValidator } from "./interfaces";
 
-export abstract class AbstractValidator<TModel extends Object> implements IValidator<TModel> {
+export abstract class AbstractValidator<TModel extends IModel> implements IValidator<TModel> {
   private _rules: RuleBuilder<TModel, keyof TModel>[] = [];
   private _hasBeenValidated: boolean = false;
 
